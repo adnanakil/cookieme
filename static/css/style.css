@@ -1,1 +1,4 @@
-h1 {color:red;}
+h1 {color:white; font-family: 'Quicksand', sans-serif;}
+.headerinput {background-color: #139CE6; margin-top: 10em;}
+body {background-color: #139CE6}
+.description {margin-top:4em;}

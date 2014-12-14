@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Bootstrap Template</title>
+    <title>CookieMe</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/bootstrap.min.css') }}">
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
+    <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -13,8 +14,8 @@
     <![endif]-->
   </head>
   <body>
-    <div class ="container text-center center-block">
-      <h1>Shrek is love</h1>
+    <div class ="container text-center center-block headerinput">
+      <h1>SF Address:</h1>
         
     </div>
 
@@ -23,13 +24,23 @@
     <div class="input-group">
       <input type="text" name=text class="form-control">
       <span class="input-group-btn">
-        <button class="btn btn-default" type=submit value=Share>Go!</button>
+        <button class="btn btn-default" type=submit value=Share>Cookie Me!</button>
       </span>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
 </form>
+    
+    <div class="media container text-center center-block headerinput">
+    <img src="{{ url_for('static', filename='cookie.gif') }}" height="262" width="262"></img>
+    </div>
+
+    <!-- <img alt="Brand" src="http://www.chick-fil-a.com/Media/Img/catalog/Food/XLarge/Cookie.png"> -->
 
 
+    <div class ="container text-center center-block description">
+      <h1>Type in your address above and we’ll deliver cookies within the hour.</h1>
+        
+    </div>
 
 
 
