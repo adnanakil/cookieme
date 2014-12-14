@@ -3,17 +3,20 @@ import os
 import sqlite3
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 from flask.ext.sqlalchemy import SQLAlchemy
+from flask.ext.heroku import Heroku
 
 #create the app
 app = Flask(__name__)
 app.config.from_object(__name__)
+#app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 db = SQLAlchemy(app)
 
 
 # Load default config and override config from an env variable
 app.config.update(dict(
 	DATABASE=os.path.join(app.root_path, 'paulspuns.db'),
-	SQLALCHEMY_DATABASE_URI = "postgresql://adnanakil@localhost/cookiemedb",
+	#SQLALCHEMY_DATABASE_URI = "postgresql://adnanakil@localhost/cookiemedb",
+	SQLALCHEMY_DATABASE_URI = os.environ['DATABASE_URL'],
 	DEBUG=True,
 	SECRET_KEY = 'development key',
 	USERNAME = 'admin',
