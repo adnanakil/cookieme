@@ -7,6 +7,8 @@
     <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/style.css') }}">
     <link href='http://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet' type='text/css'>
 
+    
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="../../assets/js/html5shiv.js"></script>
@@ -22,13 +24,14 @@
 <form action="{{ url_for('payitforward') }}" method=post class=add-entry>
     <div class="col-lg-4 col-md-offset-4">
     <div class="input-group">
-      <input type="text" name=text class="form-control">
+      <input id="address" type="text" name=text class="form-control">
       <span class="input-group-btn">
         <button class="btn btn-default" type=submit value=Share>Cookie Me!</button>
       </span>
     </div><!-- /input-group -->
   </div><!-- /.col-lg-6 -->
 </form>
+
     
     <div class="media container text-center center-block cookieimage">
     <img src="{{ url_for('static', filename='cookie.gif') }}" height="262" width="262"></img>
@@ -41,6 +44,16 @@
       <h1>Type in your address above and we’ll deliver cookies within the hour.</h1>
         
     </div>
+
+
+
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false&amp;libraries=places"></script>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type=text/javascript src="{{url_for('static', filename='jquery.geocomplete.js') }}"></script>
+
+    <script>
+      $("#address").geocomplete({componentRestrictions: { country: 'us' }});
+    </script>
 
 
 
