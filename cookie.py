@@ -2,6 +2,8 @@
 import os
 from flask import Flask, request, session, g, redirect, url_for, abort, render_template, flash
 from flask.ext.sqlalchemy import SQLAlchemy
+from requests.auth import HTTPBasicAuth
+import requests
 #from flask.ext.heroku import Heroku
 
 #create the app
@@ -41,6 +43,15 @@ def payitforward():
 	todo = CookieMe(request.form['text'])
 	db.session.add(todo)
 	db.session.commit()
+	data = {"manifest":"a box of cookies",
+	"pickup_name":"Cookie House",
+	"pickup_address":"915 Pierce St, San Francisco, CA",
+	"pickup_phone_number":"201-757-0419",
+	"pickup_notes":"Optional note that this is Invoice #123",
+	"dropoff_name":"Santas Helper",
+	"dropoff_address":request.form['text'],
+	"dropoff_phone_number":"619-940-4352"}
+	r = requests.post('https://api.postmates.com/v1/customers/'+ os.environ.get('PMATES_CUSTOMERID') +'/deliveries', data = data, auth=HTTPBasicAuth(os.environ.get('PMATES_TESTAPIKEY'), ''))
 	return render_template('payitforward.html')
 
 
