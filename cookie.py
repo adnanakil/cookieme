@@ -45,7 +45,7 @@ def payitforward():
 	db.session.commit()
 	data = {"manifest":"a box of cookies",
 	"pickup_name":"Cookie House",
-	"pickup_address":"915 Pierce St, San Francisco, CA",
+	"pickup_address":"410 Shrader St. Apt 3, San Francisco, CA",
 	"pickup_phone_number":"201-757-0419",
 	"pickup_notes":"Optional note that this is Invoice #123",
 	"dropoff_name":"Santas Helper",
