@@ -45,14 +45,16 @@ def payitforward():
 	db.session.commit()
 	data = {"manifest":"a box of cookies",
 	"pickup_name":"Cookie House",
-	"pickup_address":"410 Shrader St. Apt 3, San Francisco, CA",
+	"pickup_address":"915 Pierce St., San Francisco, CA",
 	"pickup_phone_number":"201-757-0419",
 	"pickup_notes":"Optional note that this is Invoice #123",
 	"dropoff_name":"Santas Helper",
 	"dropoff_address":request.form['text'],
-	"dropoff_phone_number":"619-940-4352"}
-	r = requests.post('https://api.postmates.com/v1/customers/'+ os.environ.get('PMATES_CUSTOMERID') +'/deliveries', data = data, auth=HTTPBasicAuth(os.environ.get('PMATES_TESTAPIKEY'), ''))
-	#r = requests.post('https://api.postmates.com/v1/customers/'+ os.environ.get('PMATES_CUSTOMERID') +'/deliveries', data = data, auth=HTTPBasicAuth(os.environ.get('PMATES_PROD_APIKEY'), ''))
+	"dropoff_phone_number":"415-866-0062"}
+	#r = requests.post('https://api.postmates.com/v1/customers/'+ os.environ.get('PMATES_CUSTOMERID') +'/deliveries', data = data, auth=HTTPBasicAuth(os.environ.get('PMATES_TESTAPIKEY'), ''))
+	#print r.content
+	#print request.form['text']
+	r = requests.post('https://api.postmates.com/v1/customers/'+ os.environ.get('PMATES_CUSTOMERID') +'/deliveries', data = data, auth=HTTPBasicAuth(os.environ.get('PMATES_PROD_APIKEY'), ''))
 	return render_template('payitforward.html')
 
 
