@@ -51,7 +51,7 @@ def payitforward():
 	"dropoff_name":"Santas Helper",
 	"dropoff_address":request.form['text'],
 	"dropoff_phone_number":"415-866-0062"}
-	r = requests.post('https://api.postmates.com/v1/customers/'+ os.environ.get('PMATES_CUSTOMERID') +'/deliveries', data = data, auth=HTTPBasicAuth(os.environ.get('PMATES_TESTAPIKEY'), ''))
+	r = requests.post('https://api.postmates.com/v1/customers/'+ str(os.environ.get('PMATES_CUSTOMERID')) +'/deliveries', data = data, auth=HTTPBasicAuth(os.environ.get('PMATES_TESTAPIKEY'), ''))
 	#print r.content
 	#print request.form['text']
 	#r = requests.post('https://api.postmates.com/v1/customers/'+ os.environ.get('PMATES_CUSTOMERID') +'/deliveries', data = data, auth=HTTPBasicAuth(os.environ.get('PMATES_PROD_APIKEY'), ''))
